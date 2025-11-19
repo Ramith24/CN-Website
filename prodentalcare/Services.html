@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services - Dental Health Services</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #e6f2f2;
+      color: #002626;
+    }
+
+    header {
+      background-color: #004d4d;
+      color: white;
+      text-align: center;
+      padding: 100px 30px;
+    }
+    .navbar a:hover {
+        color: #00ffee; 
+        transition: color 0.8s ease; 
+        }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    nav ul {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            padding-left: 30px;
+        }
+
+        .navbar {
+            background-color: rgb(0, 109, 109);
+            padding: 15px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    .btn-appointment {
+      display: block;
+      padding: 12px 24px;
+      background-color: #004d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-appointment:hover {
+      background-color: #003333;
+    }
+
+    .services-section {
+      padding: 40px 5%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .service-card h3 {
+      color: #004d4d;
+      margin: 15px 0 10px;
+    }
+
+    .doctor-availability {
+      background-color: #cceaea;
+      padding: 30px 20px;
+      margin-top: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .doctor-availability h2 {
+      text-align: center;
+      color: #003f3f;
+      margin-bottom: 20px;
+    }
+
+    .appointment-form {
+      background-color: white;
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .appointment-form h2 {
+      text-align: center;
+      color: #004d4d;
+      margin-bottom: 25px;
+    }
+
+    .appointment-form input, .appointment-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .appointment-form input[type="submit"] {
+      background-color: #004d4d;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .appointment-form input[type="submit"]:hover {
+      background-color: #003333;
+    }
+
+    .footer {
+    background-color: #003333;
+    color: #ffffff;
+    padding: 40px 20px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-left h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #00cccc;
+}
+
+.footer-left p {
+    margin: 8px 0;
+}
+
+.footer-left a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-icons a img {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+.footer{
+    font-size: small;
+}
+.footer-right {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #00cccc;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #00cccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: #cccccc;
+}
+
+    @media (max-width: 768px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="blogdental.html">Blogs</a> </li>
+            <li><a href="About_Us_Page.html">About us</a></li>
+            <li style="margin-left: 0;"><a href="Login.html" onclick="openLogin()">Sign in</a></li>
+        </ul>
+    </nav>
+  <header>
+    <h1>Our Dental Services</h1>
+    <p>Your smile is our priority</p>
+  </header>
+
+  
+
+  <a href="#appointment" class="btn-appointment">Book My Appointment</a>
+
+  <section class="services-section">
+    <div class="service-grid">
+      <div class="service-card">
+        <img src="whitening.jpg" alt="Cleaning">
+        <h3>Teeth Cleaning</h3>
+        <p>Professional cleaning to remove plaque and tartar for a healthy smile.</p>
+      </div>
+      <div class="service-card">
+        <img src="rootcanals.jpg" alt="Whitening">
+        <h3>Teeth Whitening</h3>
+        <p>Brighten your smile with our safe and effective whitening treatments.</p>
+      </div>
+      <div class="service-card">
+        <img src="braces.jpg" alt="Braces">
+        <h3>Braces & Aligners</h3>
+        <p>Modern orthodontic solutions for perfectly aligned teeth.</p>
+      </div>
+      <div class="service-card">
+        <img src="implant.jpg" alt="Implants">
+        <h3>Dental Implants</h3>
+        <p>Permanent solutions to restore your missing teeth and confidence.</p>
+      </div>
+      <div class="service-card">
+        <img src="filling.jpg" alt="Root Canal">
+        <h3>Root Canal</h3>
+        <p>Pain-free treatment to save infected teeth and eliminate discomfort.</p>
+      </div>
+      <div class="service-card">
+        <img src="ceckup.jpg" alt="Kids Care">
+        <h3>Kids Dental Care</h3>
+        <p>Fun, safe dental visits for children to keep tiny teeth healthy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="doctor-availability">
+    <h2>Doctor Availability</h2>
+    <p><strong>Dr. Aanya Verma:</strong> Mon - Fri, 10:00 AM - 4:00 PM</p>
+    <p><strong>Dr. Raj Malhotra:</strong> Tue - Sat, 12:00 PM - 6:00 PM</p>
+    <p><strong>Dr. Meera Shah:</strong> Mon, Wed, Fri, 9:00 AM - 3:00 PM</p>
+  </section>
+
+  <section class="appointment-form" id="appointment">
+    <h2>Book Your Appointment</h2>
+    <form onsubmit="return handleBooking()">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="text" placeholder="City" required />
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" required />
+      <label for="time">Select Time:</label>
+      <select id="time" required>
+        <option value="">--Choose Time--</option>
+        <option>10:00 AM</option>
+        <option>11:00 AM</option>
+        <option>12:00 PM</option>
+        <option>2:00 PM</option>
+        <option>3:00 PM</option>
+      </select>
+      <input type="submit" value="Submit" />
+    </form>
+  </section>
+
+  <div class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Pro Dental Care</h2>
+                <p>Connect with Us</p>
+                <p><a href="tel:18003093232">📞 +91 98765 43210</a></p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://www.google.co.in/maps/place/Dr.+Swetha's+Pro+Dental+Care/@12.8385067,77.7249668,16z/data=!4m10!1m2!2m1!1spro+dental+care!3m6!1s0x3bae6d0790f7deab:0xf6378048ce186afb!8m2!3d12.8425652!4d77.7279267!15sCg9wcm8gZGVudGFsIGNhcmVaESIPcHJvIGRlbnRhbCBjYXJlkgENZGVudGFsX2NsaW5pY5oBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSNmJEWklNME5CRUFFqgFHCg0vZy8xMXZzMzdqd2hzEAEyHxABIhvMNNZp9BQcuZDmLirpZVMPyEgYl6tzmVha4DQyExACIg9wcm8gZGVudGFsIGNhcmXgAQD6AQQIKxAd!16s%2Fg%2F11vxqrq_5p?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D" target="_blank"><img src="maps.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="Services.html">Book Appointment</a></li>
+                        <li><a href="blogdental.html">Blogs</a></li>
+                        <li><a href="#banner">News & Media</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore Clinics</h4>
+                    <ul>
+                        <li><a href="About_Us_Page.html">About Us</a></li>
+                        <li><a href="About_Us_Page.html">Our Vision</a></li>
+                        <li><a href="#">Dental Promise</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Pro Dental | All rights reserved</p>
+        </div>
+    </div>
+
+  <script>
+    // Very simple booking handler (no backend)
+    function handleBooking() {
+      alert("Thank you! Your appointment has been booked.");
+      return false; // Prevent form from refreshing the page
+    }
+  </script>
+
+</body>
+</html>

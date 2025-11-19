@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="mpcss.css">
+</head>
+<body>
+    <script>
+    window.onload = function () {
+        const images = ["car1.png", "car2.png", "car3.png"];
+        let currentIndex = 0;
+
+        function changeImage() {
+            const imageElements = document.getElementsByClassName("carousel-image");
+            for (let i = 0; i < imageElements.length; i++) {
+                imageElements[i].style.opacity = 0;
+            }
+
+            setTimeout(function () {
+                currentIndex = (currentIndex + 1) % images.length;
+                for (let i = 0; i < imageElements.length; i++) {
+                    let nextImage = (currentIndex + i) % images.length;
+                    imageElements[i].src = images[nextImage];
+                    imageElements[i].style.opacity = 1;
+                }
+            }, 1000);
+        }
+
+        setInterval(changeImage, 5000);
+
+        const faqButtons = document.getElementsByClassName("faq-question");
+        for (let i = 0; i < faqButtons.length; i++) {
+            faqButtons[i].onclick = function () {
+                this.classList.toggle("active");
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector(".toggle-icon");
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                    icon.textContent = "+";
+                } else {
+                    answer.style.display = "block";
+                    icon.textContent = "-";
+                }
+            };
+        }
+    };
+    //about us functions
+     function openLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+  }
+
+  function closeLogin() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+
+  function handleLogin(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const passwordError = document.getElementById('passwordError');
+    passwordError.textContent = "";
+
+    if (password.length < 6) {
+      passwordError.textContent = "Password must be at least 6 characters.";
+      return;
+    }
+
+    const storedUser = localStorage.getItem("username");
+    const storedPass = localStorage.getItem("password");
+
+    if (!storedUser || !storedPass) {
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+      alert("Account created and logged in!");
+      window.location.href = "index.html";
+    } else {
+      if (username === storedUser && password === storedPass) {
+        alert("Login successful!");
+        window.location.href = "About_Us_Page.html";
+      } else {
+        alert("Invalid username or password.");
+      }
+    }
+     }
+
+  function handleForgotPassword() {
+    const confirmReset = confirm("Are you sure you want to reset your password?");
+    if (confirmReset) {
+      localStorage.removeItem("password");
+      alert("Password reset. Please set a new one next time you log in.");
+    }
+  }
+    
+</script>
+
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="mainpage.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="">Blogs</a> </li>
+            <li><a href="About_Us_Page.html">About us</a></li>
+            <li style="margin-left: 0;"><a href="#" onclick="openLogin()">Sign in</a></li>
+        </ul>
+    </nav>
+    
+
+    <div class="banner">
+        <img src="logo.png">
+    </div>
+
+    <div class="clinic-intro">
+        <h2>"Professional Healthcare for life"</h2>
+        <p>
+            At Pro Dental Care, we believe in providing exceptional dental services that prioritize your comfort, health, and satisfaction. 
+            Our team of experienced professionals is dedicated to ensuring every smile we care for is healthy and radiant for a lifetime.
+        </p>
+    </div>
+    <div class="section-divider"></div>
+
+
+    <div class="testimonials">
+        <h2>What Our Patients Say</h2>
+        <div class="testimonial-images">
+            <img src="patient1.png" alt="Dental Care 1">
+            <img src="patient2.png" alt="Dental Care 2">
+            <img src="patient3.png" alt="Dental Care 3">
+        </div>
+        <div class="testimonial-container">
+            
+            <div class="testimonial">
+                <p>"The staff is extremely professional and friendly. My teeth have never felt cleaner!"</p>
+                <h4>- Sarah M.</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Excellent service and a very comforting environment. Highly recommend Pro Dental Care."</p>
+                <h4>- James R.</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Quick, painless treatment and very informative dentists. Will definitely return."</p>
+                <h4>- Ramesh S.</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="media" class="carousel">
+        <div class="carousel-container">
+            <img class="carousel-image" src="car1.png" alt="Pic 1">
+            <img class="carousel-image" src="car2.png" alt="Pic 2">
+            <img class="carousel-image" src="car3.png" alt="Pic 3">
+        </div>
+    </div>
+
+    <div class="faq">
+        <section class="faq-section">
+            <h1>Frequently Asked Questions</h1>
+
+            <div class="faq">
+                <button class="faq-question">Do you accept insurance plans? <span class="toggle-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Yes, we accept most major dental insurance plans. Please contact our reception to verify your coverage.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <button class="faq-question">How often should I get a dental check-up? <span class="toggle-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>We recommend visiting the dentist every 6 months for a routine cleaning and examination.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <button class="faq-question">Do you offer teeth whitening services? <span class="toggle-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Yes, we offer both in-office and take-home teeth whitening treatments.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <button class="faq-question">What should I do in a dental emergency? <span class="toggle-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>If you experience a dental emergency, call our clinic immediately. We prioritize emergency cases and will do our best to accommodate you promptly.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Pro Dental Care</h2>
+                <p>Connect with Us</p>
+                <p><a href="tel:18003093232">📞 +91 98765 43210</a></p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://www.google.co.in/maps/place/Dr.+Swetha's+Pro+Dental+Care/@12.8385067,77.7249668,16z/data=!4m10!1m2!2m1!1spro+dental+care!3m6!1s0x3bae6d0790f7deab:0xf6378048ce186afb!8m2!3d12.8425652!4d77.7279267!15sCg9wcm8gZGVudGFsIGNhcmVaESIPcHJvIGRlbnRhbCBjYXJlkgENZGVudGFsX2NsaW5pY5oBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSNmJEWklNME5CRUFFqgFHCg0vZy8xMXZzMzdqd2hzEAEyHxABIhvMNNZp9BQcuZDmLirpZVMPyEgYl6tzmVha4DQyExACIg9wcm8gZGVudGFsIGNhcmXgAQD6AQQIKxAd!16s%2Fg%2F11vxqrq_5p?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D" target="_blank"><img src="maps.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="Services.html">Book Appointment</a></li>
+                        <li><a href="blogdental.html">Blogs</a></li>
+                        <li><a href="#banner">News & Media</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore Clinics</h4>
+                    <ul>
+                        <li><a href="About_Us_Page.html">About Us</a></li>
+                        <li><a href="About_Us_Page.html">Our Vision</a></li>
+                        <li><a href="#">Dental Promise</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Pro Dental | All rights reserved</p>
+        </div>
+    </div>
+    <!-- Login Popup Modal -->
+<!-- Trigger -->
+
+
+<!-- Modal -->
+<div id="loginModal" class="modal" style="display: none;">
+  <div class="login-section">
+    <span class="close" onclick="closeLogin()">&times;</span>
+    <h2>Login to Your Account</h2>
+    <form class="login-form" onsubmit="handleLogin(event)">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required minlength="6" />
+        <div class="error" id="passwordError"></div>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="login-footer">
+      <a href="#" onclick="handleForgotPassword()">Forgot Password?</a>
+    </div>
+  </div>
+</div>
+
+      
+</body>
+</html>

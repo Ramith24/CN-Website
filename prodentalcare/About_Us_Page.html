@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Dental Health Services</title>
+  <style>
+    /* Base styling for the body */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #e6f2f2;
+      color: #002626;
+    }
+
+    nav ul {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            padding-left: 30px;
+        }
+
+        .navbar {
+            background-color: rgb(0, 109, 109);
+            padding: 15px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    /* Header styles */
+    header {
+      background-color: #004d4d;
+      color: white;
+      text-align: center;
+      padding: 90px 40px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    .navbar a:hover {
+        color: #00ffee; 
+        transition: color 0.8s ease; 
+        }
+
+    /* Team section layout */
+    .team-section {
+      padding: 50px 5%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    /* Grid layout for doctor cards */
+    .doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-items: center;
+    padding: 20px 0;
+}
+
+    /* Individual doctor card styles */
+    .doctor-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    /* Hover effect for doctor cards */
+    .doctor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Doctor image styling */
+    .doctor-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    /* Container for doctor details */
+    .doctor-info {
+      padding: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .doctor-info h3 {
+      color: #004d4d;
+      margin-bottom: 8px;
+    }
+
+    .doctor-info span {
+      font-weight: 600;
+      color: #003333;
+    }
+
+    /* Read more link styles */
+    .read-more {
+      color: #004d4d;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: #002e2e;
+    }
+
+    /* Hidden extended bio text */
+    .more {
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      overflow: hidden;
+      display: block;
+      max-height: 0;
+      opacity: 0;
+    }
+
+    /* When bio is revealed */
+    .more.show {
+      max-height: 100px;
+      opacity: 1;
+    }
+
+    /* Branch contact section */
+    .branches {
+      background-color: #cceaea;
+      padding: 40px 20px;
+      margin-top: 50px;
+    }
+
+    .branches h2 {
+      text-align: center;
+      color: #003f3f;
+      margin-bottom: 20px;
+    }
+
+    .branch-info {
+      max-width: 900px;
+      margin: auto;
+      color: #002626;
+    }
+
+    .branch-info p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #004d4d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .footer {
+    background-color: #003333;
+    color: #ffffff;
+    padding: 40px 20px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-left h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #00cccc;
+}
+
+.footer-left p {
+    margin: 8px 0;
+}
+
+.footer-left a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-icons a img {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+.footer{
+    font-size: small;
+}
+.footer-right {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #00cccc;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #00cccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: #cccccc;
+}
+    /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+      .doctor-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .doctor-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Animation for fade in on cards */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Login Section Styling */
+  .login-section {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-section h2 {
+    text-align: center;
+    color: #004d4d;
+    margin-bottom: 20px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #003333;
+  }
+
+  .login-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .login-form button {
+    background-color: #004d4d;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-form button:hover {
+    background-color: #003333;
+  }
+
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+        <ul>
+            <li><a href="mainpage.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="blogdental.html">Blogs</a> </li>
+            <li><a href="About_Us_Page.html">About us</a></li>
+            <li style="margin-left: 0;"><a href="Login.html" onclick="openLogin()">Sign in</a></li>
+        </ul>
+    </nav>
+
+  <!-- Page Header -->
+  <header>
+    <h1>Meet Our Dental Ex  perts</h1>
+    <p>Healthy Smiles Begin Here</p>
+  </header>
+
+  <!-- Section displaying all doctors -->
+  <!-- Section displaying all doctors -->
+      <section class="team-section">
+        <div class="doctor-grid">
+
+          <!-- Doctor 1 -->
+          <div class="doctor-card">
+            <img src="female1.jpg" class="doctor-img" alt="Doctor 1">
+            <div class="doctor-info">
+              <h3>Dr. Aanya Verma</h3>
+              <span>Orthodontist</span>
+              <p><span class="more">Expert in braces and alignment. She has over 12 years of experience in transforming smiles.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 2 -->
+          <div class="doctor-card">
+            <img src="male1.jpg" class="doctor-img" alt="Doctor 2">
+            <div class="doctor-info">
+              <h3>Dr. Raj Malhotra</h3>
+              <span>Endodontist</span>
+              <p><span class="more">Specialist in root canals. Known for his pain-free procedures and patient care.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 3 -->
+          <div class="doctor-card">
+            <img src="female2.jpg" class="doctor-img" alt="Doctor 3">
+            <div class="doctor-info">
+              <h3>Dr. Meera Shah</h3>
+              <span>Pediatric Dentist</span>
+              <p><span class="more">Gentle care for kids. She makes every child's visit comfortable and fun.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 4 -->
+          <div class="doctor-card">
+            <img src="male2.jpg" class="doctor-img" alt="Doctor 4">
+            <div class="doctor-info">
+              <h3>Dr. Vikram Desai</h3>
+              <span>Prosthodontist</span>
+              <p><span class="more">Smile reconstruction expert. He restores aesthetics and functionality with precision.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 5 -->
+          <div class="doctor-card">
+            <img src="female3.jpg" class="doctor-img" alt="Doctor 5">
+            <div class="doctor-info">
+              <h3>Dr. Nisha Patil</h3>
+              <span>Cosmetic Dentist</span>
+              <p><span class="more">Masters in smile makeovers. She combines art and science to deliver beautiful results.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 6 -->
+          <div class="doctor-card">
+            <img src="male3.jpg" class="doctor-img" alt="Doctor 6">
+            <div class="doctor-info">
+              <h3>Dr. Arjun Singh</h3>
+              <span>Oral Surgeon</span>
+              <p><span class="more">Expert in surgical procedures. From wisdom tooth to implants, he handles it all.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 7 -->
+          <div class="doctor-card">
+            <img src="female4.jpg" class="doctor-img" alt="Doctor 7">
+            <div class="doctor-info">
+              <h3>Dr. Rhea Kapoor</h3>
+              <span>Periodontist</span>
+              <p><span class="more">Gum health specialist. Passionate about preventing and treating gum diseases.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 8 -->
+          <div class="doctor-card">
+            <img src="male4.jpg" class="doctor-img" alt="Doctor 8">
+            <div class="doctor-info">
+              <h3>Dr. Tarun Joshi</h3>
+              <span>Implantologist</span>
+              <p><span class="more">Expert in dental implants. He ensures perfect fits and natural results.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+          <!-- Doctor 9 -->
+          <div class="doctor-card">
+            <img src="female5.jpg" class="doctor-img" alt="Doctor 9">
+            <div class="doctor-info">
+              <h3>Dr. Kavya Rao</h3>
+              <span>General Dentist</span>
+              <p><span class="more">All-round dental care. From cleanings to fillings, she does it with care.</span></p>
+              <span class="read-more" onclick="toggleBio(this)">Read More</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+  <!-- Branch information section -->
+  <section class="branches">
+    <h2>Our Branches</h2>
+    <div class="branch-info">
+      <p><strong>Bengaluru:</strong> blr@dentalhealth.com | 📞 +91 98765 43210</p>
+      <p><strong>Mumbai:</strong> mumbai@dentalhealth.com | 📞 +91 97654 32109</p>
+      <p><strong>Delhi:</strong> delhi@dentalhealth.com | 📞 +91 91234 56789</p>
+    </div>
+  </section>
+
+  <div class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Pro Dental Care</h2>
+                <p>Connect with Us</p>
+                <p><a href="tel:18003093232">📞 +91 98765 43210</a></p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                    <a href="https://www.linkedin.com" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://www.google.co.in/maps/place/Dr.+Swetha's+Pro+Dental+Care/@12.8385067,77.7249668,16z/data=!4m10!1m2!2m1!1spro+dental+care!3m6!1s0x3bae6d0790f7deab:0xf6378048ce186afb!8m2!3d12.8425652!4d77.7279267!15sCg9wcm8gZGVudGFsIGNhcmVaESIPcHJvIGRlbnRhbCBjYXJlkgENZGVudGFsX2NsaW5pY5oBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSNmJEWklNME5CRUFFqgFHCg0vZy8xMXZzMzdqd2hzEAEyHxABIhvMNNZp9BQcuZDmLirpZVMPyEgYl6tzmVha4DQyExACIg9wcm8gZGVudGFsIGNhcmXgAQD6AQQIKxAd!16s%2Fg%2F11vxqrq_5p?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D" target="_blank"><img src="maps.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="Services.html">Book Appointment</a></li>
+                        <li><a href="blogdental.html">Blogs</a></li>
+                        <li><a href="#banner">News & Media</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore Clinics</h4>
+                    <ul>
+                        <li><a href="About_Us_Page.html">About Us</a></li>
+                        <li><a href="About_Us_Page.html">Our Vision</a></li>
+                        <li><a href="#">Dental Promise</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Pro Dental | All rights reserved</p>
+        </div>
+    </div>
+  <!-- Script to handle "Read More"/"Read Less" toggle -->
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+  
+      // Optional: Get username and password (for further use)
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+  
+      // Placeholder login logic (always allows login)
+      // Redirect to another page, e.g., dashboard.html
+      window.location.href = "final.html";
+    }
+  
+    // Existing toggleBio function (if still used)
+    function toggleBio(button) {
+      const more = button.previousElementSibling.querySelector(".more");
+      if (more.classList.contains("show")) {
+        more.classList.remove("show");
+        button.innerText = "Read More";
+      } else {
+        more.classList.add("show");
+        button.innerText = "Read Less";
+      }
+    }
+  </script>
+  
+</body>
+</html>

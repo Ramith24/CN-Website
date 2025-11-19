@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blogs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    nav ul {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            padding-left: 30px;
+        }
+
+        .navbar {
+            background-color: rgb(0, 109, 109);
+            padding: 15px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    header {
+      background-color: #004d4d;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #40e0d0;
+      padding: 1rem;
+    }
+    .nav-button {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #004d4d;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin: 0 0.5rem;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .nav-button:hover {
+      background-color: #006666;
+      text-decoration: none;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .post {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      min-height: 300px;
+      color: #333;
+    }
+    .title-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .title-image {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+    .post h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: #004d4d;
+    }
+    .post p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .post img:not(.title-image) {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .post img:not(.title-image):hover {
+      transform: scale(1.05);
+    }
+    .read-more {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #004d4d;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+    .read-more:hover {
+      background-color: #006666;
+      text-decoration: none;
+    }
+    .post-group {
+      display: none;
+    }
+    .post-group.active {
+      display: grid;
+    }
+    .arrow {
+      font-size: 2rem;
+      cursor: pointer;
+      user-select: none;
+      padding: 0 1rem;
+      color: #004d4d;
+      transition: color 0.3s ease;
+    }
+    .arrow:hover {
+      color: #40e0d0;
+    }
+.footer {
+    background-color: #003333;
+    color: #ffffff;
+    padding: 40px 20px 20px 20px;
+    font-family: Arial, sans-serif;
+    font-size: small;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-left h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #00cccc;
+}
+
+.footer-left p {
+    margin: 8px 0;
+}
+
+.footer-left a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-icons a img {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.footer-right {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #00cccc;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #00cccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: #cccccc;
+}
+
+    @media (max-width: 600px) {
+      .blog-grid, .post-group.active {
+        grid-template-columns: 1fr;
+      }
+      .post img:not(.title-image) {
+        height: 120px;
+      }
+      .title-image {
+        width: 24px;
+        height: 24px;
+      }
+      .post h2 {
+        font-size: 1.4rem;
+      }
+      .arrow {
+        font-size: 1.5rem;
+        padding: 0 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="blogdental.html">Blogs</a> </li>
+            <li><a href="About_Us_Page.html">About us</a></li>
+            <li style="margin-left: 0;"><a href="Login.html" onclick="openLogin()">Sign in</a></li>
+        </ul>
+    </nav>
+  <header>
+    <img src="image-removebg-preview.png">
+  </header>
+  
+  <div class="container">
+    <div class="arrow" onclick="prevGroup()">←</div>
+    <div id="group1" class="post-group blog-grid active">
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for How to Properly Brush Your Teeth" class="title-image">
+          <h2>How Does Invisalign Straighten Teeth?</h2>
+        </div>
+        <p><em>Posted on May 15, 2025</em></p>
+        <img src="th (3).jpeg" alt="How to Properly Brush Your Teeth">
+        <p>Invisalign is an orthodontic process in which teeth are gradually straightened using...</p>
+        <a href="post1.html" class="read-more">Read More</a>
+      </div>
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for How to Properly Brush Your Teeth" class="title-image">
+          <h2>Keeping Your Child's Teeth Healthy</h2>
+        </div>
+        <p><em>Posted on May 15, 2025</em></p>
+        <img src="th (2).jpeg" alt="How to Properly Brush Your Teeth">
+        <p>Even before your baby’s first tooth comes in, it’s important to...</p>
+        <a href="post2.html" class="read-more">Read More</a>
+      </div>
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for Understanding Teeth Whitening" class="title-image">
+          <h2>Gum disease and the connection to heart disease</h2>
+        </div>
+        <p><em>Posted on May 10, 2025</em></p>
+        <img src="th (1).jpeg" alt="Understanding Teeth Whitening">
+        <p> it's been one of the more surprising observations in recent years: study after study has shown that...</p>
+        <a href="post3.html" class="read-more">Read More</a>
+      </div>
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for Preventing Gum Disease" class="title-image">
+          <h2>Charcoal Toothpaste: Benefits and Risks</h2>
+        </div>
+        <p><em>Posted on May 5, 2025</em></p>
+        <img src="shutterstock_1017408808.jpeg" alt="Preventing Gum Disease">
+        <p>The use of charcoal toothpaste is becoming a popular trend in dental care. Its use is associated with oral health benefits; however...</p>
+        <a href="post4.html" class="read-more">Read More</a>
+      </div>
+    </div>
+    <div id="group2" class="post-group blog-grid">
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for Dental Care for Kids" class="title-image">
+          <h2>What are cavities?</h2>
+        </div>
+        <p><em>Posted on April 30, 2025</em></p>
+        <img src="shutterstock_652485001.jpeg" alt="Dental Care for Kids">
+        <p>A cavity, also called tooth decay, is a hole that forms in your tooth. Cavities start small and gradually become...</p>
+        <a href="post5.html" class="read-more">Read More</a>
+      </div>
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for What to Expect During a Root Canal" class="title-image">
+          <h2>What is a Root Canal?</h2>
+        </div>
+        <p><em>Posted on April 25, 2025</em></p>
+        <img src="20250519074805_Health-risks-of-tooth-loss.jpeg" alt="What to Expect During a Root Canal">
+        <p>A root canal saves a damaged tooth by removing infected pulp...</p>
+        <a href="post6.html" class="read-more">Read More</a>
+      </div>
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for Benefits of Dental Implants" class="title-image">
+          <h2>Dental Implants: What You Should Know</h2>
+        </div>
+        <p><em>Posted on April 20, 2025</em></p>
+        <img src="faf1b978388adce253ede9738c7ee4ae.jpg" alt="Benefits of Dental Implants">
+        <p>Dental implants replace missing teeth, improving appearance and function...</p>
+        <a href="post7.html" class="read-more">Read More</a>
+      </div>
+      <div class="post">
+        <div class="title-container">
+          <img src="image-removebg-preview.png" alt="Icon for Choosing the Right Toothpaste" class="title-image">
+          <h2>How To Choose The Right Toothpaste: A Comprehensive Guide For Patients</h2>
+        </div>
+        <p><em>Posted on April 15, 2025</em></p>
+        <img src="By_svetkor.jpeg" alt="Choosing the Right Toothpaste">
+        <p>Select toothpaste with the ADA seal and fluoride for cavity protection...</p>
+        <a href="post8.html" class="read-more">Read More</a>
+      </div>
+    </div>
+    <div class="arrow" onclick="nextGroup()">→</div>
+  </div>
+  <div class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h2>Pro Dental Care</h2>
+            <p>Connect with Us</p>
+            <p><a href="tel:18003093232">📞 +91 98765 43210</a></p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://www.twitter.com" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+                <a href="https://www.linkedin.com" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+                <a href="https://www.google.co.in/maps/place/Dr.+Swetha's+Pro+Dental+Care/" target="_blank"><img src="maps.png" alt="Maps"></a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="Services.html">Book Appointment</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#banner">News & Media</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Explore Clinics</h4>
+                <ul>
+                    <li><a href="About_Us_Page.html">About Us</a></li>
+                    <li><a href="#">Our Vision</a></li>
+                    <li><a href="#clinic-info">Dental Promise</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Pro Dental | All rights reserved</p>
+    </div>
+</div>
+
+  <script>
+    const group1 = document.getElementById('group1');
+    const group2 = document.getElementById('group2');
+    let isGroup1Visible = true;
+    let autoToggleInterval;
+
+    function toggleGroups() {
+      if (isGroup1Visible) {
+        group1.classList.remove('active');
+        group2.classList.add('active');
+      } else {
+        group2.classList.remove('active');
+        group1.classList.add('active');
+      }
+      isGroup1Visible = !isGroup1Visible;
+    }
+
+    function startAutoToggle() {
+      clearInterval(autoToggleInterval);
+      autoToggleInterval = setInterval(toggleGroups, 3000);
+    }
+
+    function nextGroup() {
+      toggleGroups();
+      startAutoToggle(); 
+    }
+
+    function prevGroup() {
+      toggleGroups();
+      startAutoToggle(); 
+    }
+
+    startAutoToggle();
+  </script>
+</body>
+</html>
