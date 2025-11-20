@@ -24,7 +24,7 @@
     .login-section {
       background-color: #ffffff;
       padding: 50px 40px;
-      max-width: 400px;
+      max-width: 420px;
       width: 100%;
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -73,6 +73,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      width: 100%;
     }
 
     .login-form button:hover {
@@ -98,7 +99,7 @@
     .error {
       color: red;
       font-size: 0.9rem;
-      margin-top: -15px;
+      margin-top: -10px;
     }
 
     /* ADMIN BUTTON */
@@ -114,6 +115,8 @@
       width: 100%;
       margin-top: 25px;
       transition: background-color 0.3s ease;
+      display: block;
+      text-align: center;
     }
 
     .admin-btn:hover {
@@ -146,8 +149,9 @@
       <a href="#" onclick="handleForgotPassword()">Forgot Password?</a>
     </div>
 
-    <!-- Admin Login Button -->
-    <button class="admin-btn" onclick="window.location.href='https://repellantly-nonindulgent-jasmin.ngrok-free.dev'">
+    <!-- FIXED Admin button -->
+    <button class="admin-btn"
+      onclick="window.location.href='https://repellantly-nonindulgent-jasmin.ngrok-free.dev'">
       Admin Login
     </button>
 
@@ -160,6 +164,7 @@
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value;
       const passwordError = document.getElementById('passwordError');
+
       passwordError.textContent = "";
 
       if (password.length < 6) {
@@ -171,7 +176,6 @@
       const storedPass = localStorage.getItem("password");
 
       if (!storedUser || !storedPass) {
-        // First time setup
         localStorage.setItem("username", username);
         localStorage.setItem("password", password);
         alert("Account created and logged in!");
@@ -190,7 +194,7 @@
       const confirmReset = confirm("Are you sure you want to reset your password?");
       if (confirmReset) {
         localStorage.removeItem("password");
-        alert("Password reset. Please set a new one next time you log in.");
+        alert("Password reset. You can set a new one next time.");
       }
     }
   </script>
