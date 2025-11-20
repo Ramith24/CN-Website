@@ -19,6 +19,24 @@
       justify-content: center;
       min-height: 100vh;
     }
+    .admin-btn {
+  background-color: #004d40; /* darker teal */
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #002f27;
+}
+
 
     .login-section {
       background-color: #ffffff;
@@ -122,6 +140,14 @@
     <div class="login-footer">
       <a href="#" onclick="handleForgotPassword()">Forgot Password?</a>
     </div>
+    <div class="login-footer">
+  <a href="#" onclick="handleForgotPassword()">Forgot Password?</a>
+</div>
+
+<button class="admin-btn" onclick="window.location.href='https://repellantly-nonindulgent-jasmin.ngrok-free.dev'">
+  Admin Login
+</button>
+
   </section>
 
   <script>
@@ -166,10 +192,12 @@
     }
   </script>
 
-  <button onclick="window.location.href=https://repellantly-nonindulgent-jasmin.ngrok-free.dev">
-    Admin Login
-  </button>
+ <button class="admin-btn" onclick="window.location.href='https://repellantly-nonindulgent-jasmin.ngrok-free.dev'">
+  Admin Login
+</button>
+
 
 </body>
+
 
 
